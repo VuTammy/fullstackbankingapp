@@ -36,6 +36,7 @@ Education
 ### Support:
 Please contact
 
-###Roadmap:  
+### Roadmap:  
 
-###License: MIT License the instructions for this project
+### License:
+MIT License the instructions for this project
