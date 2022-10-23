@@ -10,7 +10,7 @@ The instructions for this assignment was to create a three tier full stack "Bad 
 
 3. Tier 3 - Back end database: 
 
-*How to run*: 
+### How to run: 
 1. Install express using the command
 ```
 npm install express
@@ -30,10 +30,12 @@ npm install bootstrap
 5. Start server usuing "nodeindex.js"
 6. Open "localhost:3000" on browser
 
-*Usage*: Education
+### Usage: 
+Education
 
-*Support*: Please contact
+### Support:
+Please contact
 
-*Roadmap*:  
+###Roadmap:  
 
-*License*: MIT License the instructions for this project
+###License: MIT License the instructions for this project
