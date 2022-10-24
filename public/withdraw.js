@@ -7,6 +7,8 @@ function Withdraw(){
       bgcolor="light"
       txtcolor="black"
       header="Withdraw"
+      cardWidth='40%'
+      title="Use this page to withdraw money from your account."
       status={status}
       body={show ? 
         <WithdrawForm setShow={setShow} setStatus={setStatus}/> :

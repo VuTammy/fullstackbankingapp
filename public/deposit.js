@@ -7,6 +7,8 @@ function Deposit(){
       bgcolor="light"
       txtcolor="black"
       header="Deposit"
+      cardWidth='40%'
+      title="Use this page to deposit money into your account."
       status={status}
       body={show ? 
         <DepositForm setShow={setShow} setStatus={setStatus}/> :

@@ -10,6 +10,7 @@ function CreateAccount(){
       bgcolor="light"
       txtcolor="black"
       header="Create Account"
+      cardWidth='40%'
       status={status}
       body={show ? 
         <CreateForm setShow={setShow} setStatus={setStatus} setName={setName} setEmail={setEmail} setPassword={setPassword} name={name} email={email} password={password}/> : 

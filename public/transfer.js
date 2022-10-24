@@ -7,6 +7,8 @@ function Transfer() {
       bgcolor="light"
       txtcolor="black"
       header="Transfer"
+      cardWidth='40%'
+      title="Use this page to transfer money between accounts."
       status={status}
       body={show ?
           <TransferForm setShow={setShow} setStatus={setStatus} /> :
@@ -64,13 +66,17 @@ function TransferForm(props){
   
   
     return(<>
-  
-      <b>Welcome {name}!</b>
+      <b>Sender: {name}</b>
       <br/><br/>
-  
-      <em>Account Balance: ${currentBalance}</em>
-      <br/><br/>
-  
+
+      Recipient Email
+      <input type="input"
+        className="form-control"
+        placeholder="Enter email"
+        value={email}
+        // issue here, setEmail is not defined
+        onChange={(e) => setEmail(e.currentTarget.value)}/><br/>
+
       Transfer Amount<br/>
       <input type="number" 
         className="form-control" 

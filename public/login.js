@@ -7,6 +7,7 @@ function Login() {
       bgcolor="light"
       txtcolor="black"
       header="Login"
+      cardWidth='40%'
       status={status}
       body={show ?
         <LoginForm setShow={setShow} setStatus={setStatus} /> :
