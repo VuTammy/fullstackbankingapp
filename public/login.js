@@ -36,7 +36,7 @@ function LoginMsg(props) {
     logout.style.display ='inline';
   return (
     <>
-      <h5>Log in successful. Use the nagivation bar to get started</h5>
+      <center><h5>Log in successful! Use the nagivation bar to get started.</h5></center><br/>
      
       <button
         type="submit"
@@ -73,6 +73,10 @@ function LoginForm(props) {
 
   return (
     <>
+
+    <center><b>Returning user? Login to begin.</b></center>
+    <br/>
+
       Email
       <br />
       <input
@@ -95,7 +99,9 @@ function LoginForm(props) {
       <br />
       <button type="submit" className="btn btn-danger" onClick={handle}>
         Login
-      </button>
+      </button><br/><br/>
+
+      <a href="#/createaccount/" className="link-dark">Don't have an account yet?</a>
     </>
   );
 }

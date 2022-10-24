@@ -8,7 +8,6 @@ function Transfer() {
       txtcolor="black"
       header="Transfer"
       cardWidth='40%'
-      title="Use this page to transfer money between accounts."
       status={status}
       body={show ?
           <TransferForm setShow={setShow} setStatus={setStatus} /> :
@@ -66,8 +65,11 @@ function TransferForm(props){
   
   
     return(<>
-      <b>Sender: {name}</b>
-      <br/><br/>
+      <center><b>Money transfer is now available! Enter recipient and amount you would like to transfer.</b></center>
+      <br/>
+
+      <center><em>Sender: {name}</em></center>
+      <br/>
 
       Recipient Email
       <input type="input"

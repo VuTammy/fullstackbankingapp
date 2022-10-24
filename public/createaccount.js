@@ -74,6 +74,9 @@ function CreateForm(props){
 
   return (<>
 
+    <center><b>Start banking with us by creating an account!</b></center>
+    <br/>
+
     Name<br/>
     <input id="name"
       type="input" 
@@ -101,7 +104,8 @@ function CreateForm(props){
 
     <button type="submit" 
       className="btn btn-danger" 
-      onClick={handle}>Create Account</button>
+      onClick={handle}>Create Account</button><br/><br/>
 
+    <a href="#/login/" className="link-dark">Already have an account?</a>
   </>);
 }

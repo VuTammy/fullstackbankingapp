@@ -8,7 +8,6 @@ function Withdraw(){
       txtcolor="black"
       header="Withdraw"
       cardWidth='40%'
-      title="Use this page to withdraw money from your account."
       status={status}
       body={show ? 
         <WithdrawForm setShow={setShow} setStatus={setStatus}/> :
@@ -67,8 +66,8 @@ function WithdrawForm(props){
 
   return(<>
 
-    <b>Welcome {name}!</b>
-    <br/><br/>
+    <center><b>Welcome {name}! Use this page to withdraw money from your account.</b></center>
+    <br/>
 
     <em>Account Balance: ${currentBalance}</em>
     <br/><br/>

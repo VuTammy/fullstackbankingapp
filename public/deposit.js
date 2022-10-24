@@ -8,7 +8,6 @@ function Deposit(){
       txtcolor="black"
       header="Deposit"
       cardWidth='40%'
-      title="Use this page to deposit money into your account."
       status={status}
       body={show ? 
         <DepositForm setShow={setShow} setStatus={setStatus}/> :
@@ -66,8 +65,8 @@ function DepositForm(props){
 
   return(<>
 
-  <b>Welcome {name}!</b>
-  <br/><br/>
+  <center><b>Welcome {name}! Use this page to deposit money into your account.</b></center>
+  <br/>
 
     <em>Account Balance: ${currentBalance}</em>
     <br/><br/>

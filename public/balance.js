@@ -8,7 +8,6 @@ function Balance(){
       txtcolor="black"
       header="Balance"
       cardWidth='40%'
-      title="This page allows you to check your account balance."
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
@@ -59,8 +58,8 @@ function BalanceForm(props){
 
   return (<>
 
-    Please enter the account email to get started. 
-    <br/><br/>
+    <center><b>This page allows you to check your balance. Enter the account email to get started.</b></center>
+    <br/>
 
     Email<br/>
     <input type="input" 
