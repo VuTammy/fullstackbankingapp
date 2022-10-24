@@ -21,6 +21,9 @@ function NavBar(){
             <a id="withdraw" className="nav-link" style={{display: 'none'}} href="#/withdraw/">Withdraw</a>
           </li>
           <li className="nav-item">
+            <a id="transfer" className="nav-link" style={{display: 'none'}} href="#/transfer/">Transfer</a>
+          </li> 
+          <li className="nav-item">
             <a id="balance" className="nav-link" style={{display: 'none'}} href="#/balance/">Balance</a>
           </li>
           <li className="nav-item">

@@ -27,7 +27,7 @@ function CreateMsg(props){
         props.setShow(true)}}>Add another account</button>
   </>);
 }
-ß
+
 function CreateForm(props){
   function validate(field, label) {
     if (!field) {

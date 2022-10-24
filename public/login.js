@@ -25,6 +25,8 @@ function LoginMsg(props) {
     deposit.style.display ='inline';
     const withdraw = document.getElementById("withdraw");
     withdraw.style.display ='inline';
+    const transfer = document.getElementById("transfer");
+    transfer.style.display ='inline';
     const balance = document.getElementById("balance");
     balance.style.display ='inline';
     const allData = document.getElementById("allData");
@@ -34,6 +36,7 @@ function LoginMsg(props) {
   return (
     <>
       <h5>Log in successful. Use the nagivation bar to get started</h5>
+     
       <button
         type="submit"
         className="btn btn-danger"
@@ -56,6 +59,10 @@ function LoginForm(props) {
             props.setStatus('');
             props.setShow(false);
             console.log('JSON:', data);
+            localStorage.setItem('balance', data.balance);
+            localStorage.setItem('name', data.name);
+            localStorage.setItem('email', data.email);
+            localStorage.setItem('password', data.password);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);

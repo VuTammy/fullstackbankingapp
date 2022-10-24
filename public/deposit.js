@@ -1,6 +1,6 @@
 function Deposit(){
   const [show, setShow]     = React.useState(true);
-  const [status, setStatus] = React.useState('');  
+  const [status, setStatus] = React.useState(''); 
 
   return (
     <Card
@@ -17,31 +17,44 @@ function Deposit(){
 
 function DepositMsg(props){
   return (<>
-    <h5>Success</h5>
+    <h5>Deposit successful</h5>
     <button type="submit" 
       className="btn btn-danger" 
       onClick={() => {
-          props.setShow(true);
+          props.setShow(true); 
           props.setStatus('');
       }}>
         Deposit again
     </button>
   </>);
-} 
+}
 
 function DepositForm(props){
-  const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState('');
+  var currentBalance = localStorage.getItem('balance');
+  var name = localStorage.getItem('name');
+  var email = localStorage.getItem('email');
 
   function handle(){
+    function validate(field, label){
+      if (!field || amount < 0) {
+          props.setStatus('Error: ' + label);
+          setTimeout(() => setStatus(''),3000);
+          return false;
+      }
+      return true;
+    }
+    if (!validate(amount, 'Not a valid input.'))   return;
     fetch(`/account/update/${email}/${amount}`)
     .then(response => response.text())
     .then(text => {
         try {
             const data = JSON.parse(text);
-            props.setStatus(JSON.stringify(data.value));
+            props.setStatus(false);
             props.setShow(false);
             console.log('JSON:', data);
+            console.log('more', data.value.balance);
+            localStorage.setItem('balance', data.value.balance);
         } catch(err) {
             props.setStatus('Deposit failed')
             console.log('err:', text);
@@ -51,13 +64,13 @@ function DepositForm(props){
 
   return(<>
 
-    Email<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter email" 
-      value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+  <b>Welcome {name}!</b>
+  <br/><br/>
+
+    <em>Account Balance: ${currentBalance}</em>
+    <br/><br/>
       
-    Amount<br/>
+    Deposit Amount<br/>
     <input type="number" 
       className="form-control" 
       placeholder="Enter amount" 
@@ -65,7 +78,7 @@ function DepositForm(props){
 
     <button type="submit" 
       className="btn btn-danger" 
-      onClick={handle}>Deposit</button>
+      onClick={handle}>Submit Deposit</button>
 
   </>);
 }

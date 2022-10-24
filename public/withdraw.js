@@ -12,12 +12,12 @@ function Withdraw(){
         <WithdrawForm setShow={setShow} setStatus={setStatus}/> :
         <WithdrawMsg setShow={setShow} setStatus={setStatus}/>}
     />
-  )
+  );
 }
 
 function WithdrawMsg(props){
   return(<>
-    <h5>Success</h5>
+    <h5>Withdraw successful</h5>
     <button type="submit" 
       className="btn btn-danger" 
       onClick={() => {
@@ -30,20 +30,33 @@ function WithdrawMsg(props){
 }
 
 function WithdrawForm(props){
-  const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState('');
+  var currentBalance = localStorage.getItem('balance');
+  var name = localStorage.getItem('name');
+  var email = localStorage.getItem('email');
 
   function handle(){
+    function validate(field, label){
+      if (!field || amount < 0) {
+          props.setStatus('Error: ' + label);
+          setTimeout(() => setStatus(''),3000);
+          return false;
+      }
+      return true;
+    }
+    if (!validate(amount, 'Not a valid input.'))   return;
     fetch(`/account/update/${email}/-${amount}`)
     .then(response => response.text())
     .then(text => {
         try {
             const data = JSON.parse(text);
-            props.setStatus(JSON.stringify(data.value));
+            props.setStatus(false);
             props.setShow(false);
             console.log('JSON:', data);
+            console.log('more', data.value.balance);
+            localStorage.setItem('balance', data.value.balance);
         } catch(err) {
-            props.setStatus('Deposit failed')
+            props.setStatus('Withdraw failed')
             console.log('err:', text);
         }
     });
@@ -52,14 +65,13 @@ function WithdrawForm(props){
 
   return(<>
 
-    Email<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter email" 
-      value={email} 
-      onChange={e => setEmail(e.currentTarget.value)}/><br/>
+    <b>Welcome {name}!</b>
+    <br/><br/>
 
-    Amount<br/>
+    <em>Account Balance: ${currentBalance}</em>
+    <br/><br/>
+
+    Withdraw Amount<br/>
     <input type="number" 
       className="form-control" 
       placeholder="Enter amount" 
@@ -68,9 +80,7 @@ function WithdrawForm(props){
 
     <button type="submit" 
       className="btn btn-danger" 
-      onClick={handle}>
-        Withdraw
-    </button>
+      onClick={handle}>Submit Withdraw</button>
 
   </>);
 }

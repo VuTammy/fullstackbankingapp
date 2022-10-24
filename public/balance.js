@@ -17,8 +17,12 @@ function Balance(){
 }
 
 function BalanceMsg(props){
+  var currentBalance = localStorage.getItem('balance');
+  var name = localStorage.getItem('name');
+
   return(<>
-    <h5>Success</h5>
+    <h5>Thank you for banking with us {name}!</h5><br/>
+    <h5>Your current account balance is ${currentBalance}</h5><br/>
     <button type="submit" 
       className="btn btn-danger" 
       onClick={() => {
@@ -32,7 +36,7 @@ function BalanceMsg(props){
 
 function BalanceForm(props){
   const [email, setEmail]   = React.useState('');
-  const [balance, setBalance] = React.useState('');  
+  const [balance, setBalance] = React.useState(''); 
 
   function handle(){
     fetch(`/account/findOne/${email}`)
@@ -40,18 +44,21 @@ function BalanceForm(props){
     .then(text => {
         try {
             const data = JSON.parse(text);
-            props.setStatus(text);
+            props.setStatus(false);
             props.setShow(false);
-            setBalance(user.balance);
+            // setBalance(user.balance);                starter file code?
             console.log('JSON:', data);
         } catch(err) {
-            props.setStatus(text)
+            props.setStatus('Not a valid email. Please try again.')
             console.log('err:', text);
         }
     });
   }
 
   return (<>
+
+    Please enter the account email to check current balance.
+    <br/><br/>
 
     Email<br/>
     <input type="input" 
@@ -62,9 +69,7 @@ function BalanceForm(props){
 
     <button type="submit" 
       className="btn btn-danger" 
-      onClick={handle}>
-        Check Balance
-    </button>
+      onClick={handle}>Check Balance</button>
 
   </>);
 }

@@ -29,6 +29,8 @@ function Logout() {
         deposit.style.display ='none';
         const withdraw = document.getElementById("withdraw");
         withdraw.style.display ='none';
+        const transfer = document.getElementById("transfer");
+        transfer.style.display ='none';
         const balance = document.getElementById("balance");
         balance.style.display ='none';
         const allData = document.getElementById("allData");
@@ -41,16 +43,9 @@ function Logout() {
   
     return (
         <>
-          {/* Maybe add "Please confirm password" in the future
-          <br />
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.currentTarget.value)}
-          />
-          <br /> */}
+          <h5>We appreciate your business!</h5>
+          <br/>
+
           <button type="submit" id="button" className="btn btn-danger" onClick={handle}>
             Logout
           </button>
