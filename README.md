@@ -27,8 +27,8 @@ npm install bootstrap
 ```
 
 4. Download the files from this repository. 
-5. Start server usuing "nodeindex.js"
-6. Open "localhost:3000" on browser
+5. Start server using "node index.js"
+6. Open "http://localhost:3000" on browser
 
 ### Usage: 
 Education
