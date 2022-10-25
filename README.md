@@ -41,7 +41,7 @@ node index.js
 Education
 
 ### Support:
-Please contact
+Please contact me for any issues.
 
 ### Roadmap:
 I plan to implement authentification using Firebase.
