@@ -17,8 +17,14 @@ function Withdraw(){
 }
 
 function WithdrawMsg(props){
+  var currentBalance = localStorage.getItem('balance');
+
   return(<>
-    <h5>Withdraw successful</h5>
+    <center><h5>
+      Withdraw successful!<br/><br/>
+      <em>New balance: ${currentBalance}</em>
+    </h5></center>
+    <br/>
     <button type="submit" 
       className="btn btn-danger" 
       onClick={() => {
@@ -40,7 +46,7 @@ function WithdrawForm(props){
     function validate(field, label){
       if (!field || amount < 0) {
           props.setStatus('Error: ' + label);
-          setTimeout(() => setStatus(''),3000);
+          setTimeout(() => props.setStatus(''),3000);
           return false;
       }
       return true;

@@ -17,8 +17,13 @@ function Deposit(){
 }
 
 function DepositMsg(props){
+  var currentBalance = localStorage.getItem('balance');
+  
   return (<>
-    <h5>Deposit successful</h5>
+        <center><h5>
+      Deposit successful!<br/><br/>
+      <em>New balance: ${currentBalance}</em>
+    </h5></center>
     <button type="submit" 
       className="btn btn-danger" 
       onClick={() => {
@@ -40,7 +45,7 @@ function DepositForm(props){
     function validate(field, label){
       if (!field || amount < 0) {
           props.setStatus('Error: ' + label);
-          setTimeout(() => setStatus(''),3000);
+          setTimeout(() => props.setStatus(''),3000);
           return false;
       }
       return true;

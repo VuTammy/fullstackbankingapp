@@ -47,10 +47,10 @@ function BalanceForm(props){
             const data = JSON.parse(text);
             props.setStatus(false);
             props.setShow(false);
-            // setBalance(user.balance);                starter file code?
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus('Not a valid email. Please try again.')
+            setTimeout(() => props.setStatus(''),3000);
             console.log('err:', text);
         }
     });

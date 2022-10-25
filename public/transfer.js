@@ -17,8 +17,13 @@ function Transfer() {
 }
 
 function TransferMsg(props){
+  var currentBalance = localStorage.getItem('balance');
+
     return(<>
-      <h5>Transfer successful</h5>
+      <center><h5>Transfer successful! Your recipient should receive the payment immediately.</h5></center>
+      <br/>
+      <center><h5><em>Your balance is now ${currentBalance}</em></h5></center>
+      <br/>
       <button type="submit" 
         className="btn btn-danger" 
         onClick={() => {
@@ -32,7 +37,7 @@ function TransferMsg(props){
 
 function TransferForm(props){
     const [amount, setAmount] = React.useState('');
-    var currentBalance = localStorage.getItem('balance');
+    const [recipientEmail, setEmail] = React.useState("");
     var name = localStorage.getItem('name');
     var email = localStorage.getItem('email');
   
@@ -40,7 +45,7 @@ function TransferForm(props){
       function validate(field, label){
         if (!field || amount < 0) {
             props.setStatus('Error: ' + label);
-            setTimeout(() => setStatus(''),3000);
+            setTimeout(() => props.setStatus(''),3000);
             return false;
         }
         return true;
@@ -58,6 +63,23 @@ function TransferForm(props){
               localStorage.setItem('balance', data.value.balance);
           } catch(err) {
               props.setStatus('Transfer failed')
+              setTimeout(() => props.setStatus(''),3000);
+              console.log('err:', text);
+          }
+      });
+      fetch(`/account/update/${recipientEmail}/${amount}`)
+      .then(response => response.text())
+      .then(text => {
+          try {
+              const data = JSON.parse(text);
+              props.setStatus(false);
+              props.setShow(false);
+              console.log('JSON:', data);
+              console.log('more', data.value.balance);
+              localStorage.setItem('balance', data.value.balance);
+          } catch(err) {
+              props.setStatus('Deposit failed')
+              setTimeout(() => props.setStatus(''),3000);
               console.log('err:', text);
           }
       });
@@ -75,8 +97,7 @@ function TransferForm(props){
       <input type="input"
         className="form-control"
         placeholder="Enter email"
-        value={email}
-        // issue here, setEmail is not defined
+        value={recipientEmail} 
         onChange={(e) => setEmail(e.currentTarget.value)}/><br/>
 
       Transfer Amount<br/>

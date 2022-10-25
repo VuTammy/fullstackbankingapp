@@ -11,14 +11,16 @@ function Card(props){
   }
 
   return (
-    <div className={classes()} style={{width: props.cardWidth,left: 300}}>
+    <div className="col d-flex justify-content-center">
+    <div className={classes()} style={{width: props.cardWidth, position: "relative"}}>
       <div className="card-header text-center bg-danger text-white">{props.header}</div>
-      <div className="card-body border border-dark">
+      <div className="card-body border border-dark border-top-0">
         {props.title && (<h5 className="card-title text-center">{props.title}</h5>)}
         {props.text && (<p className="card-text text-center">{props.text}</p>)}
         {props.body}
         {props.status && (<div id='createStatus'>{props.status}</div>)}
       </div>
-    </div>      
+    </div>   
+    </div>   
   );    
 }

@@ -8,7 +8,6 @@ function Logout() {
         txtcolor="black"
         header="Log out"
         cardWidth='40%'
-        title="We appreciate your business!"
         status=''
         body={
           <>
@@ -45,7 +44,10 @@ function Logout() {
   
     return (
         <>
-          <button type="submit" id="button" className="btn btn-danger" onClick={handle}>
+          <center><b>We apprecicate your business! See you next time.</b></center>
+          <br/>
+
+          <button type="submit" id="button" className="btn btn-danger btn-block" onClick={handle}>
             Logout
           </button>
         </>

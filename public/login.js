@@ -65,7 +65,8 @@ function LoginForm(props) {
             localStorage.setItem('email', data.email);
             localStorage.setItem('password', data.password);
         } catch(err) {
-            props.setStatus(text)
+            props.setStatus("Email or password incorrect. Please try again.")
+            setTimeout(() => props.setStatus(''),3000);
             console.log('err:', text);
         }
     });
