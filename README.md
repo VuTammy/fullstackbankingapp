@@ -37,6 +37,9 @@ node index.js
 ![example1](https://user-images.githubusercontent.com/97935337/197681963-43b60b42-a904-4607-9f9a-4ccce816af8b.png)
 
 
+7. Enjoy the application!
+
+
 ### Usage: 
 Education
 
