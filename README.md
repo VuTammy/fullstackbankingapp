@@ -11,33 +11,35 @@ The instructions for this assignment was to create a three tier full stack "Bad 
 3. Tier 3 - Back end database: lowdb
 
 ### How to run: 
-1. Install express using the command
+1. Download the files from this repository.
+2. Nagivate to the files you downloaded on your terminal.
+
+3. Install express using the command
 ```
 npm install express
 ```
 
-2. Install lowdb using the command
+4. Install lowdb using the command
 ```
 npm install lowdb
 ```
 
-3. Install bootstrap using the command
+5. Install bootstrap using the command
 ```
 npm install bootstrap
 ```
 
-4. Download the files from this repository. 
-5. Start server using the command
+6. Start server using the command
 ```
 node index.js
 ```
-6. Open "http://localhost:3000" on browser. It should look like this
+7. Open "http://localhost:3000" on browser. It should look like this
 
 
 ![example1](https://user-images.githubusercontent.com/97935337/197681963-43b60b42-a904-4607-9f9a-4ccce816af8b.png)
 
 
-7. Enjoy the application!
+8. Enjoy the application!
 
 
 ### Usage: 
