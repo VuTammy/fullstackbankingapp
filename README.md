@@ -32,7 +32,10 @@ npm install bootstrap
 node index.js
 ```
 6. Open "http://localhost:3000" on browser. It should look like this
+
+
 ![example1](https://user-images.githubusercontent.com/97935337/197681963-43b60b42-a904-4607-9f9a-4ccce816af8b.png)
+
 
 ### Usage: 
 Education
