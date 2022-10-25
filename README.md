@@ -1,5 +1,5 @@
 # Full Stack Banking Application
-## This is the capstone project for MIT xPro Full stack development with MERN
+### This is the capstone project for MIT xPro Full stack development with MERN
 
 ### Description/Purpose
 The instructions for this assignment was to create a three tier full stack "Bad Bank" application. The Bank Bank website inlcudes:
